@@ -1,0 +1,31 @@
+{
+  "resume_id": "c8eb288a2c9c46499e684c1ba25ff4f4",
+  "source_filename": "DAVID CHEN.docx",
+  "extracted_at": "2026-10-01T06:33:01.429395+00:00",
+  "extracted_text": "DAVID CHEN\ndavid.chen@email.com | +1 (555) 017-4569 | Austin, TX | linkedin.com\nPROFESSIONAL SUMMARY\nPerformance-driven Backend Software Engineer with 4+ years of experience specializing in Java application development, microservices architecture, and production-level systems design. Expert in building low-latency, highly scalable RESTful APIs within the Spring Ecosystem. Proficient in optimizing database communication layers, enforcing strict object-oriented design principles, and deploying containerized applications through automated pipelines.\nTECHNICAL SKILLS\nCore Engineering: Java (8/11/17), Object-Oriented Programming (OOP), Data Structures, Algorithms, Multi-threading.\nFrameworks: Spring Boot, Spring MVC, Spring Security (OAuth2), Spring Data JPA, Hibernate ORM.\nDatabases & Tools: PostgreSQL, MySQL, Redis, Docker, Git, Maven, Gradle.\nTesting & CI/CD: JUnit 5, Mockito, Jenkins.\nPROFESSIONAL EXPERIENCE\nSoftware Engineer (Java) | CoreSystem Technologies | 2024 – Present\nDesigned and engineered 12+ decoupled, low-latency microservices using Java 17 and Spring Boot, increasing backend system throughput by 35%.\nDeveloped secure, optimized RESTful APIs and integrated Hibernate ORM for relational mapping, resolving query latency bottlenecks in PostgreSQL by 25%.\nImplemented enterprise-grade authentication and authorization protocols utilizing Spring Security and OAuth2 across all active API gateways.\nContainerized legacy backend monolithic applications using Docker, establishing automated deployment scripts within a continuous integration pipeline.\nAssociate Java Developer | Ironclad Software Labs | 2022 – 2024\nWrote clean, maintainable backend source code in Java 11 following SOLID design principles and robust object-oriented patterns.\nConstructed extensive unit and integration testing suites utilizing JUnit and Mockito frameworks, maintaining a strict minimum of 92% test coverage.\nCollaborated closely with system architects to debug, patch, and optimize multi-threaded data processing applications.\nEDUCATION\nBachelor of Science in Computer Science | University of Texas at Austin",
+  "model_name": "all-MiniLM-L6-v2",
+  "semantic_chunks": [
+    "DAVID CHEN david.chen@email.com | +1 (555) 017-4569 | Austin, TX | linkedin.com",
+    "PROFESSIONAL SUMMARY",
+    "Performance-driven Backend Software Engineer with 4+ years of experience specializing in Java application development, microservices architecture, and production-level systems design.",
+    "Expert in building low-latency, highly scalable RESTful APIs within the Spring Ecosystem.",
+    "Proficient in optimizing database communication layers, enforcing strict object-oriented design principles, and deploying containerized applications through automated pipelines.",
+    "TECHNICAL SKILLS",
+    "Core Engineering: Java (8/11/17), Object-Oriented Programming (OOP), Data Structures, Algorithms, Multi-threading.",
+    "Frameworks: Spring Boot, Spring MVC, Spring Security (OAuth2), Spring Data JPA, Hibernate ORM.",
+    "Databases & Tools: PostgreSQL, MySQL, Redis, Docker, Git, Maven, Gradle.",
+    "Testing & CI/CD: JUnit 5, Mockito, Jenkins.",
+    "PROFESSIONAL EXPERIENCE",
+    "Software Engineer (Java) | CoreSystem Technologies | 2024 – Present",
+    "Designed and engineered 12+ decoupled, low-latency microservices using Java 17 and Spring Boot, increasing backend system throughput by 35%.",
+    "Developed secure, optimized RESTful APIs and integrated Hibernate ORM for relational mapping, resolving query latency bottlenecks in PostgreSQL by 25%.",
+    "Implemented enterprise-grade authentication and authorization protocols utilizing Spring Security and OAuth2 across all active API gateways.",
+    "Containerized legacy backend monolithic applications using Docker, establishing automated deployment scripts within a continuous integration pipeline.",
+    "Associate Java Developer | Ironclad Software Labs | 2022 – 2024",
+    "Wrote clean, maintainable backend source code in Java 11 following SOLID design principles and robust object-oriented patterns.",
+    "Constructed extensive unit and integration testing suites utilizing JUnit and Mockito frameworks, maintaining a strict minimum of 92% test coverage.",
+    "Collaborated closely with system architects to debug, patch, and optimize multi-threaded data processing applications.",
+    "EDUCATION",
+    "Bachelor of Science in Computer Science | University of Texas at Austin"
+  ]
+}

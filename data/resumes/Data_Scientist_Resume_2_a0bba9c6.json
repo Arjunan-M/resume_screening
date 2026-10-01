@@ -1,0 +1,33 @@
+{
+  "resume_id": "a0bba9c6fdac48a1914c8ea572031706",
+  "source_filename": "Data_Scientist_Resume (2).pdf",
+  "extracted_at": "2026-10-01T06:04:48.449998+00:00",
+  "extracted_text": "QUANTITATIVE DATA SCIENTIST\nEmail: researcher@datascience-matrix.com | Portfolio: github.com/algorithmic-modeling-vault\nQUANTITATIVE COMPETENCIES\nLanguages: Python, R\nFrameworks: Scikit-Learn, TensorFlow, PyTorch\nMathematics: Linear Algebra, Probability Distributions, Hypothesis Testing\nVisualization: Plotly, Matplotlib, Seaborn\nDistributed Computing: Spark, Hadoop\nSCIENTIFIC EXPERIENCES\nLead Data Scientist | Mathematical Research Labs (3-5+ Years)\n(cid:127) Executed rigorous exploratory data analysis (EDA) on high-dimensional unstructured datasets to extract mathematical\ninsights.\n(cid:127) Formulated predictive machine learning models leveraging supervised and unsupervised algorithm architectures.\n(cid:127) Programmed custom decision trees, multi-class classification networks, and mathematical regression models.\n(cid:127) Designed custom algorithms using PyTorch and TensorFlow to automate complex statistical workflows.\nQuantitative Algorithm Researcher | Predictive Analytics Institute\n(cid:127) Scripted automated data visualization templates utilizing Plotly, Matplotlib, and Seaborn for clean mathematical\nnarratives.\n(cid:127) Structured sophisticated A/B testing frameworks to evaluate empirical algorithm performance and operational\nparameters.\n(cid:127) Cleaned, mined, and aggregated massive unstructured matrices via Spark and Hadoop cluster environments.\n(cid:127) Utilized linear algebra algorithms and probability distributions to resolve complex statistical questions.\nEDUCATION\nMaster of Science in Statistics | Quantitative Technology Academy\nSpecialization in Statistical Analysis, Advanced Regression Modeling, and Applied Mathematics.",
+  "model_name": "all-MiniLM-L6-v2",
+  "semantic_chunks": [
+    "QUANTITATIVE DATA SCIENTIST",
+    "Email: researcher@datascience-matrix.com | Portfolio: github.com/algorithmic-modeling-vault",
+    "QUANTITATIVE COMPETENCIES",
+    "Languages: Python, R",
+    "Frameworks: Scikit-Learn, TensorFlow, PyTorch",
+    "Mathematics: Linear Algebra, Probability Distributions, Hypothesis Testing",
+    "Visualization: Plotly, Matplotlib, Seaborn",
+    "Distributed Computing: Spark, Hadoop",
+    "SCIENTIFIC EXPERIENCES",
+    "Lead Data Scientist | Mathematical Research Labs (3-5+ Years)",
+    "(cid:127) Executed rigorous exploratory data analysis (EDA) on high-dimensional unstructured datasets to extract mathematical",
+    "insights.",
+    "(cid:127) Formulated predictive machine learning models leveraging supervised and unsupervised algorithm architectures.",
+    "(cid:127) Programmed custom decision trees, multi-class classification networks, and mathematical regression models.",
+    "(cid:127) Designed custom algorithms using PyTorch and TensorFlow to automate complex statistical workflows.",
+    "Quantitative Algorithm Researcher | Predictive Analytics Institute",
+    "(cid:127) Scripted automated data visualization templates utilizing Plotly, Matplotlib, and Seaborn for clean mathematical",
+    "narratives.",
+    "(cid:127) Structured sophisticated A/B testing frameworks to evaluate empirical algorithm performance and operational",
+    "parameters.",
+    "(cid:127) Cleaned, mined, and aggregated massive unstructured matrices via Spark and Hadoop cluster environments.",
+    "(cid:127) Utilized linear algebra algorithms and probability distributions to resolve complex statistical questions.",
+    "EDUCATION",
+    "Master of Science in Statistics | Quantitative Technology Academy Specialization in Statistical Analysis, Advanced Regression Modeling, and Applied Mathematics."
+  ]
+}

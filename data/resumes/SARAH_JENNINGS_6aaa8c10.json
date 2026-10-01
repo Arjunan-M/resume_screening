@@ -1,0 +1,32 @@
+{
+  "resume_id": "6aaa8c1048db437f8cf7b9e317cb941b",
+  "source_filename": "SARAH JENNINGS.docx",
+  "extracted_at": "2026-10-01T06:33:08.972417+00:00",
+  "extracted_text": "SARAH JENNINGS, CBAP\nsarah.jennings@email.com | +1 (555) 014-9821 | Chicago, IL | linkedin.com\nPROFESSIONAL SUMMARY\nCertified Business Analysis Professional (CBAP) with 5 years of experience bridging the gap between business stakeholders and technical execution teams. Expert in managing the requirements lifecycle, optimizing operational workflows, and translating corporate strategy into functional engineering tasks. Adept at driving Agile ceremonies, gathering comprehensive requirements documentation, and governing User Acceptance Testing (UAT).\nTECHNICAL SKILLS\nBusiness Analysis: Requirements Gathering, Gap Analysis, Root Cause Analysis, Feasibility Studies, Cost-Benefit Analysis.\nDocumentation: Business Requirements Documents (BRD), Functional Requirements Documents (FRD), Use Cases, User Stories.\nTools & Methodologies: Jira, Confluence, Miro, Microsoft Visio, Agile/Scrum, BPMN 2.0 (Process Mapping).\nData Validation: SQL (Data Querying), Microsoft Excel (Advanced).\nPROFESSIONAL EXPERIENCE\nSenior Business Analyst | Vanguard Corporate Solutions | 2023 – Present\nServed as the primary functional liaison between executive business units and engineering teams, managing a product backlog of 150+ granular user stories.\nAuthored 20+ comprehensive Business Requirements Documents (BRDs) and Functional Requirements Documents (FRDs) with zero post-release gaps.\nMapped complex \"As-Is\" operational workflows and designed optimized \"To-Be\" cross-functional structures using BPMN 2.0, reducing process bottlenecks by 22%.\nLed User Acceptance Testing (UAT) cycles, structuring end-to-end test scenarios and validation scripts that minimized post-production software defects by 18%.\nBusiness Analyst | Apex Enterprise Consulting | 2021 – 2023\nFacilitated cross-functional requirements gathering workshops with 15+ stakeholders to define project scopes and prevent scope creep.\nUtilized basic SQL queries to perform data verification and gap analysis, validating that incoming system outputs aligned with strict business rules.\nManaged the team's Jira board and Confluence knowledge base, ensuring flawless transparency of project milestones and sprint velocity.\nEDUCATION & CERTIFICATIONS\nCertified Business Analysis Professional (CBAP) | IIBA\nBachelor of Business Administration (BBA) in Management Information Systems | University of Illinois",
+  "model_name": "all-MiniLM-L6-v2",
+  "semantic_chunks": [
+    "SARAH JENNINGS, CBAP sarah.jennings@email.com | +1 (555) 014-9821 | Chicago, IL | linkedin.com",
+    "PROFESSIONAL SUMMARY",
+    "Certified Business Analysis Professional (CBAP) with 5 years of experience bridging the gap between business stakeholders and technical execution teams.",
+    "Expert in managing the requirements lifecycle, optimizing operational workflows, and translating corporate strategy into functional engineering tasks.",
+    "Adept at driving Agile ceremonies, gathering comprehensive requirements documentation, and governing User Acceptance Testing (UAT).",
+    "TECHNICAL SKILLS",
+    "Business Analysis: Requirements Gathering, Gap Analysis, Root Cause Analysis, Feasibility Studies, Cost-Benefit Analysis.",
+    "Documentation: Business Requirements Documents (BRD), Functional Requirements Documents (FRD), Use Cases, User Stories.",
+    "Tools & Methodologies: Jira, Confluence, Miro, Microsoft Visio, Agile/Scrum, BPMN 2.0 (Process Mapping).",
+    "Data Validation: SQL (Data Querying), Microsoft Excel (Advanced).",
+    "PROFESSIONAL EXPERIENCE",
+    "Senior Business Analyst | Vanguard Corporate Solutions | 2023 – Present",
+    "Served as the primary functional liaison between executive business units and engineering teams, managing a product backlog of 150+ granular user stories.",
+    "Authored 20+ comprehensive Business Requirements Documents (BRDs) and Functional Requirements Documents (FRDs) with zero post-release gaps.",
+    "Mapped complex \"As-Is\" operational workflows and designed optimized \"To-Be\" cross-functional structures using BPMN 2.0, reducing process bottlenecks by 22%.",
+    "Led User Acceptance Testing (UAT) cycles, structuring end-to-end test scenarios and validation scripts that minimized post-production software defects by 18%.",
+    "Business Analyst | Apex Enterprise Consulting | 2021 – 2023",
+    "Facilitated cross-functional requirements gathering workshops with 15+ stakeholders to define project scopes and prevent scope creep.",
+    "Utilized basic SQL queries to perform data verification and gap analysis, validating that incoming system outputs aligned with strict business rules.",
+    "Managed the team's Jira board and Confluence knowledge base, ensuring flawless transparency of project milestones and sprint velocity.",
+    "EDUCATION & CERTIFICATIONS",
+    "Certified Business Analysis Professional (CBAP) | IIBA",
+    "Bachelor of Business Administration (BBA) in Management Information Systems | University of Illinois"
+  ]
+}

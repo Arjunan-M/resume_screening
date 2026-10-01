@@ -1,0 +1,32 @@
+{
+  "resume_id": "4a63bbeeb2744b7ea4dcf3692ea69a84",
+  "source_filename": "ALEXANDER WRIGHT.docx",
+  "extracted_at": "2026-10-01T06:32:54.781980+00:00",
+  "extracted_text": "ALEXANDER WRIGHT\nalexander.wright@email.com | +1 (555) 019-2834 | San Francisco, CA | linkedin.com\nPROFESSIONAL SUMMARY\nRigorous and analytically driven Data Scientist with over 4 years of experience specializing in statistical modeling, predictive machine learning architectures, and exploratory data analysis (EDA). Proven track record of converting complex, unstructured datasets into mathematical models that solve critical predictive challenges. Expert in leveraging Python and statistical libraries to optimize algorithmic performance and deliver data-driven insight pipelines.\nTECHNICAL SKILLS\nStatistical Analysis: Hypothesis Testing, Regression (Linear/Logistic), Bayesian Inference, Probability Distributions, ANOVA.\nMachine Learning: Supervised/Unsupervised Learning, Gradient Boosting (XGBoost, LightGBM), Random Forests, Clustering (K-Means), Dimensionality Reduction (PCA).\nProgramming & Tools: Python (Pandas, NumPy, Scikit-Learn, SciPy), R, SQL (Advanced Querying), Git.\nData Visualization: Tableau, Seaborn, Matplotlib, Plotly.\nPROFESSIONAL EXPERIENCE\nData Scientist | Nexus Analytics Corp | 2024 – Present\nEngineered and deployed a predictive gradient-boosted classification model using Python (Scikit-Learn) to forecast customer attrition, improving prediction accuracy by 14%.\nArchitected an automated data cleaning and preprocessing pipeline handling 5M+ daily unstructured data points, reducing EDA preparation time by 30%.\nDesigned and executed robust A/B testing frameworks, applying rigorous statistical hypothesis testing (Z-tests and T-tests) to validate algorithmic product alterations.\nDeveloped comprehensive, interactive Tableau dashboards to visually present multi-dimensional data trends and statistical variance to executive teams.\nJunior Data Analyst | Quantitative Insights Group | 2022 – 2024\nConducted deep-dive exploratory data analysis on massive historical databases using SQL and Pandas to uncover hidden variable correlations.\nBuilt linear and logistic regression models to optimize pricing elasticity models, contributing to an algorithmic margin increase of 4%.\nMaintained statistical data integrity by auditing incoming data streams for skewness, multi-collinearity, and missing value patterns.\nEDUCATION\nMaster of Science in Applied Statistics | University of California, Berkeley\nBachelor of Science in Mathematics | Stanford University",
+  "model_name": "all-MiniLM-L6-v2",
+  "semantic_chunks": [
+    "ALEXANDER WRIGHT alexander.wright@email.com | +1 (555) 019-2834 | San Francisco, CA | linkedin.com",
+    "PROFESSIONAL SUMMARY",
+    "Rigorous and analytically driven Data Scientist with over 4 years of experience specializing in statistical modeling, predictive machine learning architectures, and exploratory data analysis (EDA).",
+    "Proven track record of converting complex, unstructured datasets into mathematical models that solve critical predictive challenges.",
+    "Expert in leveraging Python and statistical libraries to optimize algorithmic performance and deliver data-driven insight pipelines.",
+    "TECHNICAL SKILLS",
+    "Statistical Analysis: Hypothesis Testing, Regression (Linear/Logistic), Bayesian Inference, Probability Distributions, ANOVA.",
+    "Machine Learning: Supervised/Unsupervised Learning, Gradient Boosting (XGBoost, LightGBM), Random Forests, Clustering (K-Means), Dimensionality Reduction (PCA).",
+    "Programming & Tools: Python (Pandas, NumPy, Scikit-Learn, SciPy), R, SQL (Advanced Querying), Git.",
+    "Data Visualization: Tableau, Seaborn, Matplotlib, Plotly.",
+    "PROFESSIONAL EXPERIENCE",
+    "Data Scientist | Nexus Analytics Corp | 2024 – Present",
+    "Engineered and deployed a predictive gradient-boosted classification model using Python (Scikit-Learn) to forecast customer attrition, improving prediction accuracy by 14%.",
+    "Architected an automated data cleaning and preprocessing pipeline handling 5M+ daily unstructured data points, reducing EDA preparation time by 30%.",
+    "Designed and executed robust A/B testing frameworks, applying rigorous statistical hypothesis testing (Z-tests and T-tests) to validate algorithmic product alterations.",
+    "Developed comprehensive, interactive Tableau dashboards to visually present multi-dimensional data trends and statistical variance to executive teams.",
+    "Junior Data Analyst | Quantitative Insights Group | 2022 – 2024",
+    "Conducted deep-dive exploratory data analysis on massive historical databases using SQL and Pandas to uncover hidden variable correlations.",
+    "Built linear and logistic regression models to optimize pricing elasticity models, contributing to an algorithmic margin increase of 4%.",
+    "Maintained statistical data integrity by auditing incoming data streams for skewness, multi-collinearity, and missing value patterns.",
+    "EDUCATION",
+    "Master of Science in Applied Statistics | University of California, Berkeley",
+    "Bachelor of Science in Mathematics | Stanford University"
+  ]
+}
