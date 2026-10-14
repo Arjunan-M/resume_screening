@@ -3,9 +3,6 @@ import re
 from pathlib import Path
 import numpy as np
 from sentence_transformers import SentenceTransformer
-
-# Cache loaded models by name so switching models in the UI doesn't reload
-# from disk every single time this module is used.
 _model_cache = {}
 def load_model(model_name: str = "all-MiniLM-L6-v2") -> SentenceTransformer:
     if model_name not in _model_cache:
@@ -14,7 +11,6 @@ def load_model(model_name: str = "all-MiniLM-L6-v2") -> SentenceTransformer:
 def embed_texts(texts: list, model_name: str = "all-MiniLM-L6-v2"):
     model = load_model(model_name)
     return model.encode(texts, normalize_embeddings=True)
-
 
 def _split_into_sentences(text: str) -> list[str]:
     sentences = []
@@ -28,15 +24,7 @@ def _split_into_sentences(text: str) -> list[str]:
             )
     return sentences
 
-
-def semantic_chunk_text(
-    text: str,
-    model_name: str = "all-MiniLM-L6-v2",
-    similarity_threshold: float = 0.55,
-    max_sentences: int = 5,
-    max_chars: int = 1200,
-) -> list[str]:
-    """Group adjacent sentences while their embedding meaning stays similar."""
+def semantic_chunk_text(text: str,model_name: str = "all-MiniLM-L6-v2",similarity_threshold: float = 0.55,max_sentences: int = 5,max_chars: int = 1200,) -> list[str]:
     sentences = _split_into_sentences(text)
     if not sentences:
         return []
@@ -68,31 +56,14 @@ def semantic_chunk_text(
         chunks.append(" ".join(current_sentences))
     return chunks
 
-
-def embed_resume_json(
-    json_path: str | Path,
-    model_name: str = "all-MiniLM-L6-v2",
-    similarity_threshold: float = 0.55,
-) -> tuple[dict, list[str], np.ndarray]:
-    """Load extracted resume text from JSON, semantically chunk, and embed it."""
+def embed_resume_json(json_path: str | Path,model_name: str = "all-MiniLM-L6-v2",similarity_threshold: float = 0.55,) -> tuple[dict, list[str], np.ndarray]:
     data = json.loads(Path(json_path).read_text(encoding="utf-8"))
     text = data.get("extracted_text", "")
     if not isinstance(text, str) or not text.strip():
         raise ValueError("The JSON file does not contain non-empty extracted_text.")
-
     chunks = semantic_chunk_text(
         text,
         model_name=model_name,
         similarity_threshold=similarity_threshold,
     )
     return data, chunks, embed_texts(chunks, model_name)
-
-
-# Quick manual test: `python embedder.py`
-if __name__ == "__main__":
-    sample_texts = [
-        "Experienced Python developer skilled in machine learning.",
-        "Looking for a data scientist with ML and Python experience.",
-    ]
-    vectors = embed_texts(sample_texts)
-    print(f"Embedded {len(sample_texts)} texts into shape {vectors.shape}")

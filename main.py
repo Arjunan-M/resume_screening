@@ -1,20 +1,11 @@
-import json
-import re
-from datetime import datetime, timezone
-from pathlib import Path
-from uuid import uuid4
+import httpx
 import pandas as pd
 import numpy as np
 import plotly.express as px
 import streamlit as st
 from sklearn.decomposition import PCA
-from embedder import embed_resume_json, embed_texts
-from resume_reader import read_resume
-from vector_store import ResumeVectorStore
 
-PROJECT_DIR = Path(__file__).resolve().parent
-RESUME_JSON_DIR = PROJECT_DIR / "data" / "resumes"
-CHROMA_DIR = PROJECT_DIR / "chroma_db"
+API_BASE_URL = "http://127.0.0.1:8000"
 MODEL_NAMES = ["all-MiniLM-L6-v2", "all-mpnet-base-v2"]
 
 st.set_page_config(page_title="Resume Screening", layout="wide")
@@ -54,140 +45,74 @@ if submitted:
 	if not uploaded_files or not job_description.strip():
 		st.error("Choose at least one resume and enter a job description first.")
 	else:
-		candidates = []
-		processing_errors = []
-		all_ids = []
-		all_vectors = []
-		all_documents = []
-		all_metadatas = []
-		batch_id = uuid4().hex
-
 		try:
-			with st.spinner("Reading and ranking resumes..."):
-				job_embedding = embed_texts([job_description], model_name=model_name)[0]
-				for uploaded_file in uploaded_files:
-					try:
-						extracted_text = read_resume(
-							uploaded_file.name, uploaded_file.getvalue()
-						)
-						if not extracted_text:
-							raise ValueError("No readable text was found.")
-
-						resume_id = uuid4().hex
-						safe_stem = re.sub(
-							r"[^A-Za-z0-9_-]+", "_", Path(uploaded_file.name).stem
-						).strip("_") or "resume"
-						RESUME_JSON_DIR.mkdir(parents=True, exist_ok=True)
-						json_path = RESUME_JSON_DIR / f"{safe_stem}_{resume_id[:8]}.json"
-						resume_data = {
-							"resume_id": resume_id,
-							"source_filename": uploaded_file.name,
-							"extracted_at": datetime.now(timezone.utc).isoformat(),
-							"extracted_text": extracted_text,
-						}
-						json_path.write_text(
-							json.dumps(resume_data, ensure_ascii=False, indent=2),
-							encoding="utf-8",
-						)
-
-						resume_data, chunks, embeddings = embed_resume_json(
-							json_path,
-							model_name=model_name,
-							similarity_threshold=similarity_threshold,
-						)
-						if not chunks:
-							raise ValueError("No semantic chunks were created.")
-						resume_data["model_name"] = model_name
-						resume_data["semantic_chunks"] = chunks
-						json_path.write_text(
-							json.dumps(resume_data, ensure_ascii=False, indent=2),
-							encoding="utf-8",
-						)
-
-						chunk_scores = embeddings @ job_embedding
-						ranked_chunks = sorted(
-							enumerate(chunk_scores),
-							key=lambda item: item[1],
-							reverse=True,
-						)
-						top_matches = ranked_chunks[:min(3, len(ranked_chunks))]
-						resume_score = float(
-							np.mean([score for _, score in top_matches])
-						)
-						candidates.append(
-							{
-								"filename": uploaded_file.name,
-								"json_path": str(json_path),
-								"resume_id": resume_id,
-								"extracted_text": extracted_text,
-								"chunks": chunks,
-								"embeddings": embeddings,
-								"ranked_chunks": ranked_chunks,
-								"resume_score": resume_score,
-							}
-						)
-
-						all_ids.extend(
-							f"{resume_id}-{index}" for index in range(len(chunks))
-						)
-						all_vectors.append(embeddings)
-						all_documents.extend(chunks)
-						all_metadatas.extend(
-							{
-								"doc_type": "resume_chunk",
-								"resume_id": resume_id,
-								"source_filename": uploaded_file.name,
-								"source_json": str(json_path),
-								"chunk_index": index,
-								"model_name": model_name,
-							}
-							for index in range(len(chunks))
-						)
-					except Exception as error:
-						processing_errors.append(f"{uploaded_file.name}: {error}")
-
-			if candidates:
-				all_ids.append(f"job-{batch_id}")
-				all_vectors.append(job_embedding.reshape(1, -1))
-				all_documents.append(job_description)
-				all_metadatas.append(
-					{
-						"doc_type": "job_description",
-						"batch_id": batch_id,
+			with st.spinner("Sending resumes to the API and ranking candidates..."):
+				files = [
+					("files", (item.name, item.getvalue(), item.type))
+					for item in uploaded_files
+				]
+				response = httpx.post(
+					f"{API_BASE_URL}/rank",
+					files=files,
+					data={
+						"job_description": job_description,
+						"top_n": str(int(top_n)),
 						"model_name": model_name,
-					}
+						"similarity_threshold": str(similarity_threshold),
+					},
+					timeout=600,
 				)
-				store = ResumeVectorStore(
-					collection_name=f"resume_embeddings_{model_name.replace('-', '_')}",
-					persist_directory=str(CHROMA_DIR),
+				response.raise_for_status()
+				batch_id = response.json()["batch_id"]
+				result_response = httpx.get(
+					f"{API_BASE_URL}/rank/{batch_id}", timeout=30
 				)
-				store.add_chunks(
-					all_ids,
-					np.vstack(all_vectors),
-					all_documents,
-					all_metadatas,
-				)
-		except Exception as error:
-			st.error(f"Could not rank resumes: {error}")
-		else:
-			if candidates:
-				candidates.sort(key=lambda candidate: candidate["resume_score"], reverse=True)
-				for rank, candidate in enumerate(candidates, start=1):
-					candidate["rank"] = rank
-				st.session_state["last_result"] = {
-					"candidates": candidates,
-					"job_description": job_description,
-					"job_embedding": job_embedding,
-					"top_n": int(top_n),
+				result_response.raise_for_status()
+				api_result = result_response.json()
+
+			candidates = [
+				{
+					"rank": item["rank"],
+					"filename": item["filename"],
+					"json_path": item["json_path"],
+					"resume_id": item["resume_id"],
+					"extracted_text": item["extracted_text"],
+					"chunks": item["chunks"],
+					"embeddings": np.asarray(item["embeddings"]),
+					"ranked_chunks": [
+						(chunk["chunk_index"], chunk["similarity"])
+						for chunk in item["ranked_chunks"]
+					],
+					"resume_score": item["score"],
 				}
+				for item in api_result["results"]
+			]
+			st.session_state["last_result"] = {
+				"candidates": candidates,
+				"job_description": api_result["job_description"],
+				"job_embedding": np.asarray(api_result["job_embedding"]),
+				"top_n": int(top_n),
+			}
+			for error in api_result["errors"]:
+				st.warning(f"Skipped {error['filename']}: {error['message']}")
+			if candidates:
 				st.success(
-					f"Ranked {len(candidates)} resume(s); stored their chunks and the job description in ChromaDB."
+					f"Ranked {len(candidates)} resume(s) through the API and stored them in ChromaDB."
 				)
-		if processing_errors:
-			for message in processing_errors:
-				st.warning(f"Skipped {message}")
-		if not candidates:
-			st.error("None of the uploaded resumes could be processed.")
+			else:
+				st.error("None of the uploaded resumes could be processed.")
+		except httpx.HTTPStatusError as error:
+			detail = error.response.text
+			try:
+				detail = error.response.json().get("detail", detail)
+			except ValueError:
+				pass
+			st.error(f"The API returned an error: {detail}")
+		except httpx.RequestError as error:
+			st.error(
+				f"Could not reach the API at {API_BASE_URL}. Start it with "
+				"`uvicorn api:app --reload` and try again."
+			)
 
 result = st.session_state.get("last_result")
 if result:

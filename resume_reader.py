@@ -38,7 +38,6 @@ def read_resume(filename: str, file_bytes: bytes) -> str:
 
     return clean_text(raw_text)
 
-
 def truncate_for_display(text: str, max_chars: int = 500) -> str:
     if len(text) <= max_chars:
         return text
